@@ -4,17 +4,17 @@
       class="product-list__product"
       v-for="{id, title} in products"
       :key="id"
-    >{{ title }}</li>
+    >{{ title }} <button @click="addProductToBasket">+</button></li>
   </ul>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'ProductPage',
-  computed: mapGetters(['products']),
-  methods: {},
+  computed: mapGetters(['products', 'basket']),
+  methods: mapActions(['addProductToBasket']),
   created () {
     this.$store.dispatch('retrieveProducts')
   }
