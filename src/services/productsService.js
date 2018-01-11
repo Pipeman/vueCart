@@ -1,3 +1,7 @@
+export default {
+  getProducts
+}
+
 const productList = [
   {
     id: 'A',
@@ -14,12 +18,8 @@ const productList = [
     title: 'Softcover Journal',
     price: 5.75
   }
-];
+]
 
-function getProducts() {
-  return Promise.resolve(productList);
+function getProducts () {
+  return Promise.resolve(productList)
 }
-
-export const serviceFunctions = {
-  getProducts
-};

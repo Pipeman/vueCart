@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Vuex, { Store } from 'vuex';
-import * as productsService from './services/productsService';
+import Vue from 'vue'
+import Vuex, { Store } from 'vuex'
+import getProducts from './services/productsService'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
-const store = new Store({
+export default new Store({
   state: {
     products: []
   },
@@ -12,14 +12,14 @@ const store = new Store({
     products: state => state.products
   },
   mutations: {
-    setProducts(state, { products }) {
-      state.products = products;
+    setProducts (state, { products }) {
+      state.products = products
     }
   },
   actions: {
-    async retrieveProducts({ commit }) {
-      let products = await productsService.getProducts();
+    async retrieveProducts ({ commit }) {
+      let products = await getProducts()
       commit('setProducts', { products })
     }
   }
-});
+})

@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'ProductPage',
   computed: mapGetters(['products']),
-  methods: mapActions(),
+  methods: {},
   created () {
     this.$store.dispatch('retrieveProducts')
   }
