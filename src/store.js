@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex, { Store } from 'vuex';
+import * as productsService from './services/productsService';
 
 Vue.use(Vuex);
 
@@ -11,8 +12,14 @@ const store = new Store({
     products: state => state.products
   },
   mutations: {
-    getProducts(state, {products}) {
+    setProducts(state, { products }) {
       state.products = products;
+    }
+  },
+  actions: {
+    async retrieveProducts({ commit }) {
+      let products = await productsService.getProducts();
+      commit('setProducts', { products })
     }
   }
 });

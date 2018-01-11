@@ -9,28 +9,14 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'ProductPage',
-  data () {
-    return {
-      products: [
-        {
-          id: 'A',
-          title: 'The SlimCase',
-          price: 8.99
-        },
-        {
-          id: 'B',
-          title: 'Hardcover Notebook',
-          price: 14.99
-        },
-        {
-          id: 'C',
-          title: 'Softcover Journal',
-          price: 5.75
-        }
-      ]
-    }
+  computed: mapGetters(['products']),
+  methods: mapActions(),
+  created () {
+    this.$store.dispatch('retrieveProducts')
   }
 }
 </script>
