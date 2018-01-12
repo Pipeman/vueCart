@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'BasketItem',
@@ -17,7 +17,7 @@ export default {
   methods: mapActions([
     'increaseProductQuantity',
     'decreaseProductQuantity',
-    'removeProductFromBasket'
-  ])
-}
+    'removeProductFromBasket',
+  ]),
+};
 </script>

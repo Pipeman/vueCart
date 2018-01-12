@@ -8,13 +8,13 @@
       :product="product"
     ></li>
   </ul>
-  <strong>You have {{ numProductsInBasket }} products in <router-link :to="{ name: 'Basket' }">Basket</router-link> for a total of &#163;{{ basketTotal }}</strong>
+  <strong>You have {{ numProductsInBasket }} product(s) in <router-link :to="{ name: 'Basket' }">Basket</router-link> for a total of &#163;{{ basketTotal }}</strong>
 </section>
 </template>
 
 <script>
-import ProductItem from './ProductItem'
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
+import ProductItem from './ProductItem.vue';
 
 export default {
   name: 'ProductPage',
@@ -22,10 +22,10 @@ export default {
   computed: mapGetters([
     'products',
     'basketTotal',
-    'numProductsInBasket'
+    'numProductsInBasket',
   ]),
-  created () {
-    this.$store.dispatch('retrieveProducts')
-  }
-}
+  created() {
+    this.$store.dispatch('retrieveProducts');
+  },
+};
 </script>

@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import BasketItem from './BasketItem'
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
+import BasketItem from './BasketItem.vue';
 
 export default {
   name: 'Basket',
   components: { BasketItem },
-  computed: mapGetters(['basket', 'basketTotal'])
-}
+  computed: mapGetters(['basket', 'basketTotal']),
+};
 </script>

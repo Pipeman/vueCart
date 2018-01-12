@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'ProductItem',
   props: ['product'],
   computed: mapGetters(['basket']),
-  methods: mapActions(['addProductToBasket'])
-}
+  methods: mapActions(['addProductToBasket']),
+};
 </script>
