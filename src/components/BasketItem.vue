@@ -1,5 +1,10 @@
 <template>
-    <li>{{ product.title }} <button @click="addProductToBasket(product)">Add to basket</button></li>
+    <li>
+      {{ product.title }} (&#163;{{ product.price }}) Qty: {{ product.quantity }}
+      <button @click="increaseProductQuantity(product)">+</button>
+      <button @click="decreaseProductQuantity(product)">-</button>
+      <button @click="removeProductFromBasket(product)">Remove</button>      
+    </li>
 </template>
 
 <script>
@@ -9,13 +14,10 @@ export default {
   name: 'BasketItem',
   props: ['product'],
   computed: mapGetters(['basket']),
-  methods: mapActions(['addProductToBasket'])
+  methods: mapActions([
+    'increaseProductQuantity',
+    'decreaseProductQuantity',
+    'removeProductFromBasket'
+  ])
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-li {
-  margin: 0 10px;
-}
-</style>

@@ -1,12 +1,16 @@
 <template>
+<section>
+  <router-link :to="{name: 'ProductPage'}">Go to Products Page</router-link>
   <ul class="basket">
     <li
       is="basket-item"
       v-for="basketItem in basket"
       :key="basketItem.id"
-      :product="product"
+      :product="basketItem"
     ></li>
   </ul>
+  <strong>Basket Total: &#163;{{ basketTotal }}</strong>
+</section>
 </template>
 
 <script>
@@ -16,18 +20,6 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Basket',
   components: { BasketItem },
-  computed: mapGetters(['basket']),
-  created () {
-    this.$store.dispatch('retrieveProducts')
-  }
+  computed: mapGetters(['basket', 'basketTotal'])
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-ul {
-  text-align: left;
-  list-style-type: none;
-  padding: 0;
-}
-</style>

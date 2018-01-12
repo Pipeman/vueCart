@@ -1,4 +1,5 @@
 <template>
+<section>
   <ul class="product-list">
     <li
       is="product-item"
@@ -7,6 +8,8 @@
       :product="product"
     ></li>
   </ul>
+  <strong>You have {{ numProductsInBasket }} products in <router-link :to="{ name: 'Basket' }">Basket</router-link> for a total of &#163;{{ basketTotal }}</strong>
+</section>
 </template>
 
 <script>
@@ -16,18 +19,13 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ProductPage',
   components: { ProductItem },
-  computed: mapGetters(['products']),
+  computed: mapGetters([
+    'products',
+    'basketTotal',
+    'numProductsInBasket'
+  ]),
   created () {
     this.$store.dispatch('retrieveProducts')
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-ul {
-  text-align: left;
-  list-style-type: none;
-  padding: 0;
-}
-</style>

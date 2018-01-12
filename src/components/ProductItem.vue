@@ -1,7 +1,7 @@
 <template>
     <li
       class="product-list__product"
-    >{{ product.title }} <button @click="addProductToBasket(product)">Add to basket</button></li>
+    >{{ product.title }} (&#163;{{ product.price }}) <button @click="addProductToBasket(product)">Add to basket</button></li>
 </template>
 
 <script>
@@ -14,10 +14,3 @@ export default {
   methods: mapActions(['addProductToBasket'])
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-li {
-  margin: 0 10px;
-}
-</style>
