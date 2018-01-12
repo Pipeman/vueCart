@@ -1,22 +1,22 @@
 <template>
-  <ul class="product-list">
+  <ul class="basket">
     <li
-      is="product-item"
-      v-for="product in products"
-      :key="product.id"
+      is="basket-item"
+      v-for="basketItem in basket"
+      :key="basketItem.id"
       :product="product"
     ></li>
   </ul>
 </template>
 
 <script>
-import ProductItem from './ProductItem'
+import BasketItem from './BasketItem'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'ProductPage',
-  components: { ProductItem },
-  computed: mapGetters(['products']),
+  name: 'Basket',
+  components: { BasketItem },
+  computed: mapGetters(['basket']),
   created () {
     this.$store.dispatch('retrieveProducts')
   }

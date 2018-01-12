@@ -17,18 +17,21 @@ export default new Store({
     setProducts (state, { products }) {
       state.products = products
     },
-    addToBasket (state, { productToAdd }) {
-      const productInBasket = state.basket.find(({ id }) => productToAdd.id === id)
-      productInBasket ? productInBasket.quantity++ : state.basket.push({ ...productToAdd, quantity: 1 })
-      console.log(state.basket)
-    }
+    addToBasket (state, productToAdd) {
+      const isProductInBasket = state.basket.some(({ id }) => productToAdd.id === id)
+      if (!isProductInBasket) {
+        state.basket.push({ id: productToAdd.id, quantity: 1 })
+      }
+    },
+    
   },
   actions: {
     async retrieveProducts ({ commit }) {
       let products = await getProducts()
       commit('setProducts', { products })
     },
-    addProductToBasket ({ commit }, productToAdd) {
+    addProductToBasket ({ commit }, product) {
+      let productToAdd = Object.assign({}, product)
       commit('addToBasket', productToAdd)
     }
   }
