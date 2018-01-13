@@ -29,10 +29,9 @@ module.exports = {
       js: 'never',
       vue: 'never'
     }],
-    // disallow reassignment of function parameters
+    // allow reassignment of function parameters only when modifying their props
     // disallow parameter object manipulation except for specific exclusions
     'no-param-reassign': ['error', {
-      props: true,
       ignorePropertyModificationsFor: [
         'state', // for vuex state
         'acc', // for reduce accumulators
@@ -45,9 +44,13 @@ module.exports = {
     }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // allow hoisting of functions
     'no-use-before-define': ['error', { 'functions': false }],
+    // allow warning and error messages in the console
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    // allow non returning or non assigning ternary expressions
     'no-unused-expressions': ['error', { 'allowTernary': true }],
-    'no-param-reassign': ['error', { 'props': false }],
-    'no-console': ['error', { allow: ['warn', 'error'] }]
+    // allow the use of parameters with the same name of a variable defined in the outer scope
+    'no-shadow': ['off']
   }
 }
