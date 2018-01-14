@@ -43,7 +43,7 @@ const actions = {
     commit('modifyProductQuantity', { product: copyObj(productToDecreaseQtyOf), modifier: -1 });
   },
   removeProductFromBasket({ commit }, productToRemove) {
-    commit('removeFromBasket', { product: copyObj(productToRemove) });
+    commit('removeFromBasket', { ...productToRemove });
   },
 };
 
@@ -64,5 +64,8 @@ function updateQuantity(product, modifier) {
 
 function removeProductFromBasket(productToRemoveId, basket) {
   const index = basket.findIndex(({ id }) => productToRemoveId === id);
-  basket.splice(index, 1);
+
+  if (index > -1) {
+    basket.splice(index, 1);
+  }
 }

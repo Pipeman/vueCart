@@ -5,17 +5,17 @@ export default {
 const productList = [
   {
     id: 'A',
-    title: 'The SlimCase',
+    title: 'MOO The SlimCase',
     price: 8.99,
   },
   {
     id: 'B',
-    title: 'Hardcover Notebook',
+    title: 'MOO Hardcover Notebook',
     price: 14.99,
   },
   {
     id: 'C',
-    title: 'Softcover Journal',
+    title: 'MOO Softcover Journal',
     price: 5.75,
   },
 ];
